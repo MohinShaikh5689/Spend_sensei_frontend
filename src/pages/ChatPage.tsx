@@ -30,6 +30,8 @@ export const ChatPage = () => {
     const token = localStorage.getItem("token");
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
+    const baseUrl = "https://spend-sensei-backend.onrender.com"
+
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
@@ -41,8 +43,8 @@ export const ChatPage = () => {
 
         try {
             const endpoint = selectedOption === "advisor"
-                ? "http://localhost:3000/api/v1/budget/financial-advisor"
-                : "http://localhost:3000/api/v1/budget/chat";
+                ? `${baseUrl}/api/v1/budget/financial-advisor`
+                : `${baseUrl}/api/v1/budget/chat`;
 
             const response = await axios.post(endpoint, {
                 message: inputValue,
@@ -63,7 +65,7 @@ export const ChatPage = () => {
     const fetchChat = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.get("http://localhost:3000/api/v1/budget/chats", {
+            const response = await axios.get(`${baseUrl}/api/v1/budget/chats`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

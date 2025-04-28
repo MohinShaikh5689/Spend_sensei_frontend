@@ -13,6 +13,7 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const baseUrl = 'https://spend-sensei-backend.onrender.com';
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const LoginPage: React.FC = () => {
     setError('');
 
     try {
-        const response = await axios.post('http://localhost:3000/api/v1/users/login', { email, password });
+        const response = await axios.post(`${baseUrl}/api/v1/users/login`, { email, password });
         localStorage.setItem('token', response.data.token); 
         localStorage.setItem('name', response.data.name);
         navigate('/dashboard');

@@ -71,13 +71,14 @@ const DashBoard: React.FC = () => {
     category: '',
   });
   const token = localStorage.getItem('token');
+  const baseUrl = "https://spend-sensei-backend.onrender.com"
 
   const [selectedMonth, setSelectedMonth] = useState<string>(months[new Date().getMonth()]);
   const [selectedYear, setSelectedYear] = useState<number>(currentYear);
   const fetchTransactionData = async () => {
     try {
       const monthIndex = months.indexOf(selectedMonth);
-      const response = await axios.post('http://localhost:3000/api/v1/transactions/get', {
+      const response = await axios.post(`${baseUrl}/api/v1/transactions/get`, {
         month: monthIndex + 1,
         year: selectedYear,
       }, {
@@ -136,7 +137,7 @@ const DashBoard: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try{
-      const response = await axios.post('http://localhost:3000/api/v1/transactions', {
+      const response = await axios.post(`${baseUrl}/api/v1/transactions`, {
         ...formData,
       }, {
         headers: {

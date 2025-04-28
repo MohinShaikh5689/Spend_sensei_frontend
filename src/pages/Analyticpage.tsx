@@ -38,6 +38,7 @@ export const AnalyticPage = () => {
     const [selectedMonth, setSelectedMonth] = useState<string>(months[new Date().getMonth()]);
     const [selectedYear, setSelectedYear] = useState<number>(currentYear);
     const [isLoading, setIsLoading] = useState(false);
+    const baseUrl = "https://spend-sensei-backend.onrender.com";
     
     // Aggregate transactions by category
     const categoryMap: Record<string, number> = {};
@@ -120,7 +121,7 @@ export const AnalyticPage = () => {
         try {
             setIsLoading(true);
             const monthIndex = months.indexOf(selectedMonth) + 1; 
-            const response = await axios.post("http://localhost:3000/api/v1/transactions/get",{
+            const response = await axios.post(`${baseUrl}/api/v1/transactions/get`,{
                 month: monthIndex,
                 year: selectedYear,
             }, {

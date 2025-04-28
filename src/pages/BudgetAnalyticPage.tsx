@@ -40,12 +40,13 @@ export const BudgetAnalyticsPage = () => {
     const [transactions, setTransactions] = useState<Budget[]>([]); 
     const [isLoading, setIsLoading] = useState(true);
     const token = localStorage.getItem('token');
+    const baseUrl = "https://spend-sensei-backend.onrender.com";
 
     const fetchBudgetData = async () => {
         try {
             setIsLoading(true);
             const monthIndex = months.indexOf(selectedMonth) + 1;
-            const response = await axios.post("http://localhost:3000/api/v1/budget/monthly", {
+            const response = await axios.post(`${baseUrl}/api/v1/budget/monthly`, {
                 month: monthIndex,
                 year: selectedYear,
             }, {
@@ -65,7 +66,7 @@ export const BudgetAnalyticsPage = () => {
         try {
             setIsLoading(true);
             const monthIndex = months.indexOf(selectedMonth) + 1;
-            const response = await axios.post("http://localhost:3000/api/v1/transactions/get", {
+            const response = await axios.post(`${baseUrl}/api/v1/transactions/get`, {
                 month: monthIndex,
                 year: selectedYear,
             }, {

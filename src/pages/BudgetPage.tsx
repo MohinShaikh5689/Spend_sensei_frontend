@@ -59,6 +59,7 @@ export const BudgetPage = () => {
     });
     const [isCardVisible, setIsCardVisible] = useState(false);
     const token = localStorage.getItem("token");
+    const baseUrl = "https://spend-sensei-backend.onrender.com"
 
     const categoryColors: Record<string, string> = {
         food: "bg-orange-100 text-orange-600",
@@ -82,7 +83,7 @@ export const BudgetPage = () => {
     const fetchBudget = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000/api/v1/budget", {
+            const response = await axios.get(`${baseUrl}/api/v1/budget`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -102,7 +103,7 @@ export const BudgetPage = () => {
     const handleEdit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:3000/api/v1/budget/${formData._id}`, formData, {
+            const response = await axios.put(`${baseUrl}/api/v1/budget/${formData._id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -125,7 +126,7 @@ export const BudgetPage = () => {
 
     const handleDelete = async (id: string) => {
         try {
-            const response = await axios.delete(`http://localhost:3000/api/v1/budget/${id}`, {
+            const response = await axios.delete(`${baseUrl}/api/v1/budget/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -145,7 +146,7 @@ export const BudgetPage = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/budget", budgetForm, {
+            const response = await axios.post(`${baseUrl}/api/v1/budget`, budgetForm, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -229,7 +230,7 @@ export const BudgetPage = () => {
                         <h1 className="text-2xl font-bold mb-6">Budget</h1>
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
                             <Button className="flex items-center gap-2" onClick={handleCardVisiblity}>
-                                <Plus size={16} /> Add Transaction
+                                <Plus size={16} /> Add Budget
                             </Button>
                         </div>
 

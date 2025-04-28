@@ -60,11 +60,12 @@ export const TransactionPage = () => {
         amount: 0,
     });
     const token = localStorage.getItem("token");
+    const baseUrl = 'https://spend-sensei-backend.onrender.com';
 
     const fetchTransactionData = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.get("http://localhost:3000/api/v1/transactions", {
+            const response = await axios.get(`${baseUrl}/api/v1/transactions`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -83,7 +84,7 @@ export const TransactionPage = () => {
     const handleEdit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:3000/api/v1/transactions/${formData._id}`, {
+            const response = await axios.put(`${baseUrl}/api/v1/transactions/${formData._id}`, {
                 description: formData.description,
                 category: formData.category,
                 transactionType: formData.transactionType,
@@ -107,7 +108,7 @@ export const TransactionPage = () => {
 
     const handleDelete = async (id: string) => {
         try {
-            const response = await axios.delete(`http://localhost:3000/api/v1/transactions/${id}`, {
+            const response = await axios.delete(`${baseUrl}/api/v1/transactions/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
