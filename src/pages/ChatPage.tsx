@@ -53,8 +53,8 @@ export const ChatPage = () => {
             });
             setInputValue("");
             fetchChat(); 
-        } catch (error) {
-           alert("Error sending message:", error.response.data.message);
+        } catch (error:any) {
+           alert(error.response.data.message);
         } finally {
             setIsLoading(false);
         }

@@ -100,8 +100,8 @@ export const TransactionPage = () => {
                 )
 
             ))}
-        } catch (error) {
-           alert("Error fetching transaction data:", error.response.data.message);
+        } catch (error:any) {
+           alert(error.response.data.message);
         }
     };
 
@@ -117,8 +117,8 @@ export const TransactionPage = () => {
                     prevTransactions.filter((transaction) => transaction._id !== id)
                 );
             }
-        } catch (error) {
-            alert("Error deleting transaction:", error.response.data.message);
+        } catch (error:any) {
+            alert(error.response.data.message);
         }
     }
 

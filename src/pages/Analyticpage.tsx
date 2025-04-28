@@ -129,8 +129,8 @@ export const AnalyticPage = () => {
                 },
             });
             setTransactions(response.data);
-        } catch (error) {
-            alert("Error fetching transaction data:", error.response.data.message);
+        } catch (error:any) {
+            alert(error.response.data.message);
         } finally {
             setIsLoading(false);
         }

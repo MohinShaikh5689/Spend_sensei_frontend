@@ -1,7 +1,6 @@
 # 💸 Spend Sensei - Personal Finance Management Application
 
 <div align="center">
-  <img src=https://icon.icepanel.io/Technology/svg/Vite.js.svg" alt="Spend Sensei Logo" width="200"/>
   <p><em>Take control of your finances with intelligent tracking, budgeting, and insights.</em></p>
 
   <!-- Badges -->
@@ -83,7 +82,7 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/MohinShaikh5689/spend-sensei.git
+git clone https://github.com/MohinShaikh5689/Spend_sensei_frontend
 cd spend-sensei/frontend
 
 # 2. Install frontend dependencies
@@ -95,8 +94,6 @@ npm run dev
 # 4. Open your browser and visit
 http://localhost:5173
 ```
-
-(Backend setup instructions coming soon!)
 
 ---
 

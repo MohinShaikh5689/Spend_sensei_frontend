@@ -86,8 +86,8 @@ const DashBoard: React.FC = () => {
         },
       });
       setTransactions(response.data);
-    } catch (error) {
-      alert('Error fetching transaction data:', error.response.data.message);
+    } catch (error:any) {
+      alert(error.response.data.message);
     }
   };
 
@@ -156,8 +156,8 @@ const DashBoard: React.FC = () => {
       });
       setIsCardVisible(false);
       fetchTransactionData();
-    }catch (error) {
-      alert('Error adding transaction:', error.response.data.message);
+    }catch (error:any) {
+      alert(error.response.data.message);
     }
   };
 

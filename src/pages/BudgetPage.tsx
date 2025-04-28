@@ -88,8 +88,8 @@ export const BudgetPage = () => {
                 },
             });
             setBudget(response.data);
-        } catch (error) {
-           alert("Error fetching transactions:", error.response.data.message);
+        } catch (error:any) {
+           alert(error.response.data.message);
         } finally {
             setIsLoading(false);
         }
@@ -114,11 +114,11 @@ export const BudgetPage = () => {
                     )
                 );
             }
-        } catch (error) {
+        } catch (error:any) {
             if (error.response && error.response.data && error.response.data.message) {
                 alert(error.response.data.message);
             } else {
-                alert("Error updating transaction:", error);
+                alert(error);
             }
         }
     }
@@ -133,8 +133,8 @@ export const BudgetPage = () => {
             if (response.status === 200) {
                 setBudget((prevBudget) => prevBudget.filter((transaction) => transaction._id !== id));
             }
-        } catch (error) {
-            alert("Error deleting transaction:", error.response.data.message);
+        } catch (error:any) {
+            alert(error.response.data.message);
         }
     }
 
