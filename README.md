@@ -1,7 +1,6 @@
 # 💸 Spend Sensei - Personal Finance Management Application
 
 <div align="center">
-  <img src=https://icon.icepanel.io/Technology/svg/Vite.js.svg" alt="Spend Sensei Logo" width="200"/>
   <p><em>Take control of your finances with intelligent tracking, budgeting, and insights.</em></p>
 
   <!-- Badges -->
