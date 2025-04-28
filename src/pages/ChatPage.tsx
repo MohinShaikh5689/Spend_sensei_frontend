@@ -23,7 +23,7 @@ interface ChatMessage {
 export const ChatPage = () => {
     const [selectedOption, setSelectedOption] = useState<string>("advisor");
     const [messages, setMessages] = useState<ChatMessage[]>([
-        { botReply: "Hello! How can I help you today? You can select a mode from the dropdown menu." }
+        { botReply: "Hello! How can I help you today? You can select a mode from the dropdown menu. If you want to add transaction you have to give proper discription eg: I purchased Bag of 100$" }
     ]);
     const [inputValue, setInputValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -70,14 +70,14 @@ export const ChatPage = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            response.data.unshift({ botReply: "Hello! How can I help you today? You can select a mode from the dropdown menu." });
+            response.data.unshift({ botReply: "Hello! How can I help you today? You can select a mode from the dropdown menu. If you want to add transaction you have to give proper discription eg: I purchased Bag of 100$" });
 
             setMessages(response.data);
 
         } catch (error:any) {
             if (error.response.data.message === "No chats found") {
                 setMessages([
-                    { botReply: "Hello! How can I help you today? You can select a mode from the dropdown menu." }
+                    { botReply: "Hello! How can I help you today? You can select a mode from the dropdown menu. If you want to add transaction you have to give proper discription eg: I purchased Bag of 100$" }
                 ]);
             }
         } finally {

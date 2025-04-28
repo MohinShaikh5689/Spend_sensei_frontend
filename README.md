@@ -38,6 +38,7 @@
   - Insights into budget health and overspending warnings
 
 - **💬 AI Financial Assistant**
+  - If you want to add transaction give propmpt like this "I've purchased a book of 100$"
   - Chat with Spend Sensei AI for budgeting tips and financial advice
   - Add transactions through natural language
   - Personalized insights based on your financial habits
