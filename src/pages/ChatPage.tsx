@@ -72,7 +72,7 @@ export const ChatPage = () => {
 
             setMessages(response.data);
 
-        } catch (error) {
+        } catch (error:any) {
             if (error.response.data.message === "No chats found") {
                 setMessages([
                     { botReply: "Hello! How can I help you today? You can select a mode from the dropdown menu." }

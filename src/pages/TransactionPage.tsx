@@ -70,7 +70,7 @@ export const TransactionPage = () => {
                 },
             });
             setTransactions(response.data);
-        } catch (error) {
+        } catch (error:any) {
             if(error.response.data.message === "No transactions found") {
                 setTransactions([]);
             }
